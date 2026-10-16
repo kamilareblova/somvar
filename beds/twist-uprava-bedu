@@ -1,0 +1,5 @@
+awk '{print $1, $2-50, $3+50, $4}' DOC-001520-Exome-IVDR-hg38-targets-v1.0.0.bed > DOC-001520-Exome-IVDR-hg38-targets-v1.0.0+-50.bed
+sort -k1,1 -k2,2n   DOC-001520-Exome-IVDR-hg38-targets-v1.0.0+-50.bed > DOC-001520-Exome-IVDR-hg38-targets-v1.0.0+-50.sorted.bed
+bedtools merge -i DOC-001520-Exome-IVDR-hg38-targets-v1.0.0+-50.sorted.bed -c 4 -o distinct > DOC-001520-Exome-IVDR-hg38-targets-v1.0.0+-50.sorted.merged.bed
+
+awk '{print $1, $2+30, $3-30, $4}' DOC-001520-Exome-IVDR-hg38-targets-v1.0.0+-50.sorted.merged.bed > DOC-001520-Exome-IVDR-hg38-targets-v1.0.0+-20.sorted.merged.bed
